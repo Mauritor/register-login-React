@@ -1,0 +1,31 @@
+.card-color-register{
+    background-color: #386de0;
+}
+.card-color-login{
+    background-color: #be38e0;
+}
+.card-title-color{
+    color: #ffffff;
+}
+.super-nav{
+    background-color: transparent;
+    opacity: .5;
+}
+.fondo-home{
+    background-image: url('../dist/img/earth.jpg');
+    background-size: cover; 
+}
+.fondo-register{
+    background-image: url('../dist/img/sat.jpg');
+    background-size: cover;
+}
+.fondo-login{
+    background-image: url('../dist/img/astronaut.jpg');
+    background-size: cover;
+}
+.calidad{
+    opacity: .8;
+}
+.cursor{
+    cursor: pointer;
+}
