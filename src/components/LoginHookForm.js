@@ -1,10 +1,11 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Nav from './Nav';
+import spacelogo from '../dist/img/space-logo.png'
 
 const LoginHookForm = () => {
     const { register, errors, handleSubmit } = useForm();
-
+    const [messageError, setMessageError] = useState('');
     const login = async (data) => {
         try {
             const res = await fetch('http://192.168.0.16:3001/api/user/login', {
@@ -20,7 +21,9 @@ const LoginHookForm = () => {
             }
 
         } catch (error) {
-            console.log('error: ', error)
+            console.log('error: ', error);
+            const message = () => {setMessageError("Email o Password Incorrect")}
+            message()
         }
     }
 
@@ -31,12 +34,18 @@ const LoginHookForm = () => {
     return (
         <Fragment>
             <div className="fondo-login">
-                <Nav statusLogin={'bg-dark'} />
+                <Nav statusLogin={'bg-secondary'} />
                 <div className="d-flex justify-content-center align-items-center vh-100">
                     <div className="col-md-5">
                         <div className="card calidad">
-                            <h2 className="card-header card-color-login card-title-color">Login</h2>
+                            <div className="card-header card-color-login">
+                                <h2 className="card-title-color d-flex justify-content-between">Login <img src={spacelogo} alt="" className="space-logo" /></h2>
+                                <p className="card-title-color">Login to Continue</p>
+                            </div>
                             <div className="card-body">
+                                <span className="text-danger text-small d-block mb-2">
+                                    {messageError}
+                                </span>
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     <div className="form-group">
                                         <input
@@ -74,7 +83,7 @@ const LoginHookForm = () => {
                                     </div>
                                     <button
                                         type="submit"
-                                        className="btn btn-outline-secondary btn-block">
+                                        className="btn btn-outline-dark btn-block">
                                         Login
                                 </button>
                                 </form>

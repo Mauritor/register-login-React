@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { useForm } from 'react-hook-form';
 import Nav from './Nav';
+import astronautLogo from '../dist/img/astronaut-logo.png'
 
 const RegistroHookForm = (props) => {
     const { register, errors, handleSubmit } = useForm();
@@ -26,11 +27,14 @@ const RegistroHookForm = (props) => {
     return (
         <Fragment>
             <div className="fondo-register">
-                <Nav statusRegister={'nav-link bg-dark'} />
+                <Nav statusRegister={'bg-secondary'} />
                 <div className="d-flex justify-content-center align-items-center vh-100 ">
                     <div className="col-md-5">
                         <div className="card calidad">
-                            <h2 className="card-header card-color-register card-title-color">Registro</h2>
+                            <div className="card-header card-color-register">
+                                <h2 className="card-title-color d-flex justify-content-between">Register<img src={astronautLogo} alt="" className="space-logo" /></h2>
+                                <p className="card-title-color">Register to Continue</p>
+                            </div>
                             <div className="card-body">
                                 <form onSubmit={handleSubmit(onSubmit)} id="formRegister">
                                     <div className="form-group">
